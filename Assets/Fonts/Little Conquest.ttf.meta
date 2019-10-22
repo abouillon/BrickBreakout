@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a777f39adce0d6c4e960fe7ea19ce9c4
+timeCreated: 1525644426
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Little Conquest
+  fontNames:
+  - Little Conquest
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
