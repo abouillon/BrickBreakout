@@ -8,6 +8,10 @@ public class LevelManager : MonoBehaviour {
 	public void LoadLevel(string name)
     {
         Debug.Log("Level Load Requested for " + name);
+        if(name == "Lose")
+        {
+            Brick.breakableCount = 0;
+        }
         SceneManager.LoadScene(name);
     }
 
