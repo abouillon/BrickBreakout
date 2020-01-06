@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
-    public static int breakableCount = 0;
+    [SerializeField] public static int breakableCount = 0;
     public Sprite[] hitSprites;
     private int timesHit;
     private LevelManager levelManager;
     private bool isBreakable;
+    [SerializeField] AudioClip breakSound;
 
     // Use this for initialization
     void Start () {
@@ -17,7 +18,6 @@ public class Brick : MonoBehaviour {
         if (isBreakable)
         {
             breakableCount++;
-            print(breakableCount);
         }
         levelManager = FindObjectOfType<LevelManager>();
 	}
@@ -43,8 +43,9 @@ public class Brick : MonoBehaviour {
         {
             breakableCount--;
             print(breakableCount);
-            levelManager.BrickDestroyed();
+            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
             Destroy(gameObject);
+            levelManager.BrickDestroyed();
         }
         else
         {
