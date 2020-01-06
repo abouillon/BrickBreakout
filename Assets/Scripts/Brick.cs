@@ -9,6 +9,7 @@ public class Brick : MonoBehaviour {
     private int timesHit;
     private LevelManager levelManager;
     private bool isBreakable;
+    private GameState addScore;
     [SerializeField] AudioClip breakSound;
 
     // Use this for initialization
@@ -19,6 +20,7 @@ public class Brick : MonoBehaviour {
         {
             breakableCount++;
         }
+        addScore = FindObjectOfType<GameState>();
         levelManager = FindObjectOfType<LevelManager>();
 	}
 	
@@ -45,6 +47,7 @@ public class Brick : MonoBehaviour {
             print(breakableCount);
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
             Destroy(gameObject);
+            addScore.AddToScore();
             levelManager.BrickDestroyed();
         }
         else
