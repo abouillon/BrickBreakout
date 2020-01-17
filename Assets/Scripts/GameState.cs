@@ -13,6 +13,19 @@ public class GameState : MonoBehaviour
     //state variables
     [SerializeField] int gameScore = 0;
 
+    private void Awake()
+    {
+        int instanceCount = FindObjectsOfType<GameState>().Length;
+        if(instanceCount > 1)
+        {
+            gameObject.setActive(false);
+            Destroy(gameObject);
+        } else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
