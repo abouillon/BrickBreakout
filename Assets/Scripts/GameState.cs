@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
+    private static GameState gameState;
+    
     //config parameters
     [Range(0.1f, 10f)][SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlock = 50;
@@ -13,16 +15,18 @@ public class GameState : MonoBehaviour
     //state variables
     [SerializeField] int gameScore = 0;
 
+    //Creates new play session and makes score persistent across levels
     private void Awake()
     {
-        int instanceCount = FindObjectsOfType<GameState>().Length;
-        if(instanceCount > 1)
+        Debug.Log("State Instance " + GetInstanceID());
+        if(gameState == null)
         {
-            gameObject.setActive(false);
-            Destroy(gameObject);
+            gameState = this;
+            GameObject.DontDestroyOnLoad(gameObject);
         } else
         {
-            DontDestroyOnLoad(gameObject);
+            DestroyImmediate(gameObject);
+            Debug.Log("Removed Duplicate State");
         }
     }
     
@@ -43,5 +47,10 @@ public class GameState : MonoBehaviour
     {
         gameScore += pointsPerBlock;
         scoreboard.text = gameScore.ToString();
+    }
+
+    public void ResetState()
+    {
+        Destroy(gameObject);
     }
 }

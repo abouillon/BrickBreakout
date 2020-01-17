@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	public void LoadLevel(string name)
+    private GameState state;
+
+    public void LoadLevel(string name)
     {
+        state = FindObjectOfType<GameState>();
         Debug.Log("Level Load Requested for " + name);
-        if(name == "Lose")
+        if(name == "Lose" || name == "Win")
         {
             Brick.breakableCount = 0;
+            state.ResetState();
         }
         SceneManager.LoadScene(name);
     }
