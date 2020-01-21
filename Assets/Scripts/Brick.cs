@@ -5,12 +5,14 @@ using UnityEngine;
 public class Brick : MonoBehaviour {
 
     [SerializeField] public static int breakableCount = 0;
+    [SerializeField] AudioClip breakSound;
+    [SerializeField] GameObject brickParticleFX;
+
     public Sprite[] hitSprites;
     private int timesHit;
     private LevelManager levelManager;
     private bool isBreakable;
     private GameState addScore;
-    [SerializeField] AudioClip breakSound;
 
     // Use this for initialization
     void Start () {
@@ -44,16 +46,21 @@ public class Brick : MonoBehaviour {
         if (timesHit >= maxHits)
         {
             breakableCount--;
-            print(breakableCount);
-            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
-            Destroy(gameObject);
-            addScore.AddToScore();
+            playBreakSFX();
+            TriggerParticleFX();
             levelManager.BrickDestroyed();
         }
         else
         {
             LoadSprites();
         }
+    }
+
+    private void playBreakSFX()
+    {
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+        Destroy(gameObject);
+        addScore.AddToScore();
     }
 
     private void LoadSprites()
@@ -63,5 +70,11 @@ public class Brick : MonoBehaviour {
         {
             this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
         }
+    }
+
+    private void TriggerParticleFX()
+    {
+        GameObject crumbles = Instantiate(brickParticleFX, transform.position, transform.rotation);
+        Destroy(crumbles, 0.75f);
     }
 }

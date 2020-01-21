@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5c05bcf3ca62647b438b3789d08066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakSound: {fileID: 8300000, guid: 04d1a9fa1bad7874f882c5d3e4535369, type: 3}
+  brickParticleFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   hitSprites:
   - {fileID: 21300006, guid: 92987e5e963c724448251255ae6248cc, type: 3}
   - {fileID: 21300008, guid: 92987e5e963c724448251255ae6248cc, type: 3}
-  breakSound: {fileID: 8300000, guid: 04d1a9fa1bad7874f882c5d3e4535369, type: 3}
