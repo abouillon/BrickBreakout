@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Breakable
+  - One_Hit
+  - Two_Hit
+  - Three_Hit
   layers:
   - Default
   - TransparentFX

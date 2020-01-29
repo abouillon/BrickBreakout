@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
+    //config params
     [SerializeField] public static int breakableCount = 0;
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject brickParticleFX;
 
+    //cache references
     public Sprite[] hitSprites;
-    private int timesHit;
     private LevelManager levelManager;
-    private bool isBreakable;
     private GameState addScore;
+
+    //state variables
+    private int timesHit;
+    private bool isBreakable;
 
     // Use this for initialization
     void Start () {
         timesHit = 0;
-        isBreakable = (this.tag == "Breakable");
-        if (isBreakable)
-        {
-            breakableCount++;
-        }
+        countBreakable();
         addScore = FindObjectOfType<GameState>();
         levelManager = FindObjectOfType<LevelManager>();
 	}
@@ -30,6 +30,15 @@ public class Brick : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void countBreakable()
+    {
+        isBreakable = (this.tag == "Breakable");
+        if (isBreakable)
+        {
+            breakableCount++;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
