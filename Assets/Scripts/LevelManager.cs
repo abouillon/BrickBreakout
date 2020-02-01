@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    //cached references
     private GameState state;
 
     public void LoadLevel(string name)
@@ -15,8 +16,8 @@ public class LevelManager : MonoBehaviour {
         {
             Brick.breakableCount = 0;
             state.ResetState();
+            SceneManager.LoadScene(name);
         }
-        SceneManager.LoadScene(name);
     }
 
     public void QuitRequest()

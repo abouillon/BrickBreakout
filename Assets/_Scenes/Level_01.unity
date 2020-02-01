@@ -1854,6 +1854,11 @@ PrefabInstance:
       propertyPath: ballSounds.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: 753d0f86d0cc4ce428555ece8e0269a1, type: 3}
+    - target: {fileID: 114301278464312562, guid: 091dc65939021104ea70dc88c3630717,
+        type: 3}
+      propertyPath: randomFactor
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 091dc65939021104ea70dc88c3630717, type: 3}
 --- !u!1 &1253095950 stripped
