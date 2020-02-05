@@ -18,5 +18,17 @@ public class Paddle : MonoBehaviour {
         paddlePos.x = Mathf.Clamp(mouseBlocks, 0.5f, 15.5f);
 
         this.transform.position = paddlePos;
-	}
+    }
+
+    public void rotateLeft()
+    {
+        print("Rotate Left");
+        transform.Rotate(Vector3.forward, 0.5f, Space.Self);
+    }
+
+    public void rotateRight()
+    {
+        print("Rotate Right");
+        transform.Rotate(Vector3.back, 0.5f, Space.Self);
+    }
 }

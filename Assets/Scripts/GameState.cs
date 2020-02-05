@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
 
     //state variables
     [SerializeField] int gameScore = 0;
+    private Paddle playPaddle;
 
     //Creates new play session and makes score persistent across levels
     private void Awake()
@@ -33,6 +34,7 @@ public class GameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playPaddle = FindObjectOfType<Paddle>();
         scoreboard.text = gameScore.ToString();
     }
 
@@ -40,6 +42,14 @@ public class GameState : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            playPaddle.rotateLeft();
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            playPaddle.rotateRight();
+        }
     }
 
     //track score

@@ -15,7 +15,10 @@ public class LevelManager : MonoBehaviour {
         if(name == "Lose" || name == "Win")
         {
             Brick.breakableCount = 0;
+            SceneManager.LoadScene(name);
             state.ResetState();
+        } else
+        {
             SceneManager.LoadScene(name);
         }
     }
