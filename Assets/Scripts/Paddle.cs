@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    //config params
+    [SerializeField] public float angle = 0f;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -20,15 +23,19 @@ public class Paddle : MonoBehaviour {
         this.transform.position = paddlePos;
     }
 
-    public void rotateLeft()
+    public void RotateLeft()
     {
-        print("Rotate Left");
         transform.Rotate(Vector3.forward, 0.5f, Space.Self);
     }
 
-    public void rotateRight()
+    public void RotateRight()
     {
-        print("Rotate Right");
-        transform.Rotate(Vector3.back, 0.5f, Space.Self);
+        transform.Rotate(Vector3.forward, -0.5f, Space.Self);
     }
+
+    public float GetZValue()
+    {
+        return this.transform.rotation.z;
+    }
+
 }

@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour {
 
     //state variables
     private bool hasStarted = false;
+    private float paddleZ;
 
     //cached references
     AudioSource myAudioSource;
@@ -23,7 +24,9 @@ public class Ball : MonoBehaviour {
 		paddleToBallVector = this.transform.position - paddle.transform.position;
         myAudioSource = GetComponent<AudioSource>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
-	}
+        //paddleZ = paddle.transform.rotation.z;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -34,8 +37,11 @@ public class Ball : MonoBehaviour {
 
             if (Input.GetMouseButtonDown(0))
             {
+                paddleZ = paddle.GetZValue() * -50f;
+                print("Paddle Angle: " + paddleZ);
                 hasStarted = true;
-                myRigidBody2D.velocity = new Vector2(2f, 10f);
+                myRigidBody2D.velocity = new Vector2(2f, 0f);
+                myRigidBody2D.AddForce(new Vector2(paddleZ, 10f), ForceMode2D.Impulse);
             }
         }
 	}

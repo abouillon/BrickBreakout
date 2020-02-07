@@ -42,13 +42,15 @@ public class GameState : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            playPaddle.rotateLeft();
+            //Turns Paddle Left
+            playPaddle.RotateLeft();
         }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            playPaddle.rotateRight();
+            //Turns Paddle Right
+            playPaddle.RotateRight();
         }
     }
 
