@@ -5,8 +5,9 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     //config params
-    [SerializeField] float randomFactor = 1f;
+    [SerializeField] float randomFactor = 2f;
     [SerializeField] AudioClip[] ballSounds;
+    private float speed = 10f;
 
     //state variables
     private bool hasStarted = false;
@@ -34,28 +35,31 @@ public class Ball : MonoBehaviour {
         if (!hasStarted)
         {
             this.transform.position = paddle.transform.position + paddleToBallVector;
-
+            paddleZ = paddle.GetZValue() * -50f;
             if (Input.GetMouseButtonDown(0))
             {
-                paddleZ = paddle.GetZValue() * -50f;
-                print("Paddle Angle: " + paddleZ);
+                Vector2 ballVector = new Vector2(2f, 10f);
+                //paddleZ = paddle.GetZValue() * -50f;
+                //print("Paddle Angle: " + paddleZ);
                 hasStarted = true;
-                myRigidBody2D.velocity = new Vector2(2f, 0f);
-                myRigidBody2D.AddForce(new Vector2(paddleZ, 10f), ForceMode2D.Impulse);
+                //myRigidBody2D.angularVelocity = paddleZ;
+                myRigidBody2D.velocity = ballVector.normalized * speed;
             }
         }
 	}
 
-    private void OnCollisionEnter2D()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 velocityOffset = new Vector2
-            (UnityEngine.Random.Range(0, randomFactor), 
-            UnityEngine.Random.Range(0, randomFactor));
+        //print("Hit " + collision.gameObject.name);
+
+        Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(2f, randomFactor),
+            UnityEngine.Random.Range(2f, randomFactor));
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
             GetComponent<AudioSource>().PlayOneShot(clip);
-            myRigidBody2D.velocity += velocityOffset;
+            //print(myRigidBody2D.velocity);
+            myRigidBody2D.velocity += velocityOffset.normalized;
         }
     }
 

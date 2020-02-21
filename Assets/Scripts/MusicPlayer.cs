@@ -8,7 +8,7 @@ public class MusicPlayer : MonoBehaviour {
 
     private void Awake()
     {
-        Debug.Log("Music Player " + GetInstanceID());
+        //Debug.Log("Music Player " + GetInstanceID());
         if (instance == null)
         {
             instance = this;
@@ -17,13 +17,13 @@ public class MusicPlayer : MonoBehaviour {
         else
         {
             DestroyImmediate(gameObject);
-            print("Duplicate Player Destroyed");
+            //print("Duplicate Player Destroyed");
         }
     }
 
     // Use this for initialization
     void Start () {
-        Debug.Log("Music Player " + GetInstanceID());
+        //Debug.Log("Music Player " + GetInstanceID());
         
 	}
 }

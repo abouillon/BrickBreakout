@@ -11,6 +11,7 @@ public class GameState : MonoBehaviour
     [Range(0.1f, 10f)][SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlock = 50;
     [SerializeField] public Text scoreboard;
+    [SerializeField] bool autoplay;
 
     //state variables
     [SerializeField] int gameScore = 0;
@@ -19,7 +20,7 @@ public class GameState : MonoBehaviour
     //Creates new play session and makes score persistent across levels
     private void Awake()
     {
-        Debug.Log("State Instance " + GetInstanceID());
+        //Debug.Log("State Instance " + GetInstanceID());
         if(gameState == null)
         {
             gameState = this;
@@ -27,7 +28,7 @@ public class GameState : MonoBehaviour
         } else
         {
             DestroyImmediate(gameObject);
-            Debug.Log("Removed Duplicate State");
+            //Debug.Log("Removed Duplicate State");
         }
     }
     
@@ -41,6 +42,11 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playPaddle == null)
+        {
+            playPaddle = FindObjectOfType<Paddle>();
+        }
+
         Time.timeScale = gameSpeed;
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
@@ -64,5 +70,10 @@ public class GameState : MonoBehaviour
     public void ResetState()
     {
         Destroy(gameObject);
+    }
+
+    public bool EnableAutoplay()
+    {
+        return autoplay;
     }
 }

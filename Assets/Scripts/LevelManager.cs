@@ -11,9 +11,11 @@ public class LevelManager : MonoBehaviour {
     public void LoadLevel(string name)
     {
         state = FindObjectOfType<GameState>();
-        Debug.Log("Level Load Requested for " + name);
+        //Debug.Log("Level Load Requested for " + name);
         if(name == "Lose" || name == "Win")
         {
+
+            print("Paddle Destroyed");
             Brick.breakableCount = 0;
             SceneManager.LoadScene(name);
             state.ResetState();
@@ -25,7 +27,7 @@ public class LevelManager : MonoBehaviour {
 
     public void QuitRequest()
     {
-        Debug.Log("Quit Request initiated");
+        //Debug.Log("Quit Request initiated");
         Application.Quit();
     }
 
