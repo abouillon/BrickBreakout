@@ -4,3 +4,6 @@
 
  Features:
  Rotate paddle left and right using your mouse scroll wheel.
+
+ Known Issues
+ Ball loses velocity over extended periods of time.

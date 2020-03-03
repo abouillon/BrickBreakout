@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     //config params
-    [SerializeField] float randomFactor = 2f;
+    [SerializeField] float randomFactor = 1f;
     [SerializeField] AudioClip[] ballSounds;
     private float speed = 10f;
 
@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour {
             paddleZ = paddle.GetZValue() * -50f;
             if (Input.GetMouseButtonDown(0))
             {
-                Vector2 ballVector = new Vector2(2f, 10f);
+                Vector2 ballVector = new Vector2(2f, 15f);
                 //paddleZ = paddle.GetZValue() * -50f;
                 //print("Paddle Angle: " + paddleZ);
                 hasStarted = true;
@@ -52,8 +52,8 @@ public class Ball : MonoBehaviour {
     {
         //print("Hit " + collision.gameObject.name);
 
-        Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(2f, randomFactor),
-            UnityEngine.Random.Range(2f, randomFactor));
+        Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(0f, randomFactor),
+            0f);
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];

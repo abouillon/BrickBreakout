@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour {
 
     //cached references
     private GameState state;
+    private Scoreboard score;
 
     public void LoadLevel(string name)
     {
@@ -15,7 +16,7 @@ public class LevelManager : MonoBehaviour {
         if(name == "Lose" || name == "Win")
         {
 
-            print("Paddle Destroyed");
+            print("Loading Win/Lose");
             Brick.breakableCount = 0;
             SceneManager.LoadScene(name);
             state.ResetState();

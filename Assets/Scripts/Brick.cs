@@ -12,7 +12,7 @@ public class Brick : MonoBehaviour {
     //cache references
     public Sprite[] hitSprites;
     private LevelManager levelManager;
-    private GameState addScore;
+    private Scoreboard addScore;
 
     //state variables
     private int timesHit;
@@ -22,7 +22,7 @@ public class Brick : MonoBehaviour {
     void Start () {
         timesHit = 0;
         countBreakable();
-        addScore = FindObjectOfType<GameState>();
+        addScore = FindObjectOfType<Scoreboard>();
         levelManager = FindObjectOfType<LevelManager>();
 	}
 	
