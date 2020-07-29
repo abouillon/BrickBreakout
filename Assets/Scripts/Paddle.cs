@@ -7,6 +7,8 @@ public class Paddle : MonoBehaviour {
     //config params
     [SerializeField] public float angle = 0f;
     private Vector3 currentAngle;
+    private float minAngle = 0f;
+    private float maxAngle = 30f;
 
     //cached references
     private GameState roboPlay;

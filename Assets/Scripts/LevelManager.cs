@@ -12,7 +12,6 @@ public class LevelManager : MonoBehaviour {
     public void LoadLevel(string name)
     {
         state = FindObjectOfType<GameState>();
-        //Debug.Log("Level Load Requested for " + name);
         if(name == "Lose" || name == "Win")
         {
 
@@ -28,7 +27,6 @@ public class LevelManager : MonoBehaviour {
 
     public void QuitRequest()
     {
-        //Debug.Log("Quit Request initiated");
         Application.Quit();
     }
 

@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     //state variables
     private Paddle playPaddle;
     private Ball gameBall;
+    private Scoreboard board;
 
     //Creates new play session and makes score persistent across levels
     private void Awake()
@@ -33,6 +34,7 @@ public class GameState : MonoBehaviour
     {
         playPaddle = FindObjectOfType<Paddle>();
         gameBall = FindObjectOfType<Ball>();
+        board = FindObjectOfType<Scoreboard>();
     }
 
     // Update is called once per frame
@@ -60,6 +62,7 @@ public class GameState : MonoBehaviour
     public void ResetState()
     {
         Destroy(gameObject);
+        board.resetScore();
     }
 
     public bool EnableAutoplay()
