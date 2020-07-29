@@ -13,6 +13,7 @@ public class GameState : MonoBehaviour
 
     //state variables
     private Paddle playPaddle;
+    private Ball gameBall;
 
     //Creates new play session and makes score persistent across levels
     private void Awake()
@@ -31,6 +32,7 @@ public class GameState : MonoBehaviour
     void Start()
     {
         playPaddle = FindObjectOfType<Paddle>();
+        gameBall = FindObjectOfType<Ball>();
     }
 
     // Update is called once per frame
@@ -42,14 +44,17 @@ public class GameState : MonoBehaviour
         }
 
         Time.timeScale = gameSpeed;
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            playPaddle.RotateLeft();
+        if(gameBall.hasStarted) {
+            if(Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                playPaddle.RotateLeft();
+            }
+            if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                playPaddle.RotateRight();
+            }
         }
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            playPaddle.RotateRight();
-        }
+
     }
 
     public void ResetState()

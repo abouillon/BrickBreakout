@@ -67,7 +67,8 @@ public class Brick : MonoBehaviour {
 
     private void playBreakSFX()
     {
-        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, 0.45f);
+        //Debug.Log("coords: " + gameObject.transform.position);
         Destroy(gameObject);
         addScore.AddToScore();
     }
@@ -86,4 +87,11 @@ public class Brick : MonoBehaviour {
         GameObject crumbles = Instantiate(brickParticleFX, transform.position, transform.rotation);
         Destroy(crumbles, 0.75f);
     }
+/**
+    IEnumerator RespawnBrick(Vector3 brick_position)
+    {
+        yield return UnityEngine.WaitForSecondsRealtime(3f);
+
+    }
+*/
 }

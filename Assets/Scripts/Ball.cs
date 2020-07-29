@@ -7,10 +7,10 @@ public class Ball : MonoBehaviour {
     //config params
     [SerializeField] float randomFactor = 1f;
     [SerializeField] AudioClip[] ballSounds;
-    private float speed = 10f;
+    private float maxSpeed = 15f;
 
     //state variables
-    private bool hasStarted = false;
+    public bool hasStarted = false;
     private float paddleZ;
 
     //cached references
@@ -38,13 +38,17 @@ public class Ball : MonoBehaviour {
             paddleZ = paddle.GetZValue() * -50f;
             if (Input.GetMouseButtonDown(0))
             {
-                Vector2 ballVector = new Vector2(2f, 15f);
+                //Vector2 ballVector = new Vector2(2f, 15f);
                 //paddleZ = paddle.GetZValue() * -50f;
                 //print("Paddle Angle: " + paddleZ);
                 hasStarted = true;
                 //myRigidBody2D.angularVelocity = paddleZ;
-                myRigidBody2D.velocity = ballVector.normalized * speed;
+                myRigidBody2D.velocity = new Vector2(2f, 15f);
             }
+        }
+        if (hasStarted)
+        {
+            myRigidBody2D.velocity = 15f * (myRigidBody2D.velocity.normalized);
         }
 	}
 
@@ -52,14 +56,12 @@ public class Ball : MonoBehaviour {
     {
         //print("Hit " + collision.gameObject.name);
 
-        Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(0f, randomFactor),
-            0f);
+        Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(0f, randomFactor), UnityEngine.Random.Range(0f, randomFactor));
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
-            GetComponent<AudioSource>().PlayOneShot(clip);
-            //print(myRigidBody2D.velocity);
-            myRigidBody2D.velocity += velocityOffset.normalized;
+            GetComponent<AudioSource>().PlayOneShot(clip, 0.45f);
+            myRigidBody2D.velocity += velocityOffset;
         }
     }
 
