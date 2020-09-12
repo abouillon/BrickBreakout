@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/**
+ * TO-DO: Fix Launch Angles
+ * 
+ **/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,20 +39,12 @@ public class Ball : MonoBehaviour {
         if (!hasStarted)
         {
             this.transform.position = paddle.transform.position + paddleToBallVector;
-            paddleZ = paddle.GetZValue() * -50f;
             if (Input.GetMouseButtonDown(0))
             {
-                //Vector2 ballVector = new Vector2(2f, 15f);
-                //paddleZ = paddle.GetZValue() * -50f;
-                //print("Paddle Angle: " + paddleZ);
+                paddleZ = paddle.GetZValue() * 20f;
                 hasStarted = true;
-                //myRigidBody2D.angularVelocity = paddleZ;
-                myRigidBody2D.velocity = new Vector2(2f, 10f);
+                myRigidBody2D.velocity = new Vector2(paddleZ, 10f);
             }
-        }
-        if (hasStarted)
-        {
-            myRigidBody2D.velocity = 15f * (myRigidBody2D.velocity.normalized);
         }
 	}
 

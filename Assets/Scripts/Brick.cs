@@ -54,6 +54,7 @@ public class Brick : MonoBehaviour {
         int maxHits = hitSprites.Length + 1;
         if (timesHit >= maxHits)
         {
+            //StartCoroutine(RespawnBrick());
             breakableCount--;
             playBreakSFX();
             TriggerParticleFX();
@@ -87,11 +88,13 @@ public class Brick : MonoBehaviour {
         GameObject crumbles = Instantiate(brickParticleFX, transform.position, transform.rotation);
         Destroy(crumbles, 0.75f);
     }
-/**
-    IEnumerator RespawnBrick(Vector3 brick_position)
+
+    IEnumerator RespawnBrick()
     {
-        yield return UnityEngine.WaitForSecondsRealtime(3f);
+        gameObject.SetActive(false);
+        yield return new UnityEngine.WaitForSeconds(3f);
+        gameObject.SetActive(true);
+        breakableCount++;
 
     }
-*/
 }
