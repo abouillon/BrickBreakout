@@ -46,15 +46,17 @@ public class GameState : MonoBehaviour
         }
 
         Time.timeScale = gameSpeed;
-        if(gameBall.hasStarted) {
-            if(Input.GetAxis("Mouse ScrollWheel") < 0f)
-            {
-                playPaddle.RotateLeft();
-            }
-            if(Input.GetAxis("Mouse ScrollWheel") > 0f)
-            {
-                playPaddle.RotateRight();
-            }
+        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            playPaddle.RotateLeft();
+        }
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            playPaddle.RotateRight();
+        }
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
+            playPaddle.ReturnMiddle();
         }
 
     }

@@ -6,9 +6,9 @@ public class Paddle : MonoBehaviour {
 
     //config params
     [SerializeField] public float angle = 0f;
-    private Vector3 currentAngle;
-    private float minAngle = 0f;
-    private float maxAngle = 30f;
+    private Vector3 currentRotation;
+    private float minAngle;
+    private float maxAngle;
 
     //cached references
     private GameState roboPlay;
@@ -23,7 +23,7 @@ public class Paddle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 paddlePos = new Vector3(0.5f, this.transform.position.y, 0f);
-        currentAngle = this.transform.localEulerAngles;
+        currentRotation = this.transform.localEulerAngles;
 
         float mouseBlocks = GetXPos();
 
@@ -45,12 +45,32 @@ public class Paddle : MonoBehaviour {
 
     public void RotateLeft()
     {
-        transform.Rotate(Vector3.forward, 0.5f, Space.Self);
+        minAngle = 30f;
+        maxAngle = 30f;
+        transform.Rotate(0f, 0f, 0f, Space.Self);
+        currentRotation = transform.localRotation.eulerAngles;
+        currentRotation.z = Mathf.Clamp(currentRotation.z, minAngle, maxAngle); // clamp z rotation
+        transform.localRotation = Quaternion.Euler(currentRotation);
     }
 
     public void RotateRight()
     {
-        transform.Rotate(Vector3.forward, -0.5f, Space.Self);
+        minAngle = -30f;
+        maxAngle = -30f;
+        transform.Rotate(0f, 0f, 0f, Space.Self);
+        currentRotation = transform.localRotation.eulerAngles;
+        currentRotation.z = Mathf.Clamp(currentRotation.z, minAngle, maxAngle); // clamp z rotation
+        transform.localRotation = Quaternion.Euler(currentRotation);
+    }
+
+    public void ReturnMiddle()
+    {
+        minAngle = 0f;
+        maxAngle = 0f;
+        transform.Rotate(0f, 0f, 0f, Space.Self);
+        currentRotation = transform.localRotation.eulerAngles;
+        currentRotation.z = Mathf.Clamp(currentRotation.z, minAngle, maxAngle); // clamp z rotation
+        transform.localRotation = Quaternion.Euler(currentRotation);
     }
 
     public float GetZValue()

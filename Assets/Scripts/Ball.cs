@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour {
     //config params
     [SerializeField] float randomFactor = 1f;
     [SerializeField] AudioClip[] ballSounds;
-    private float maxSpeed = 15f;
+    private float maxSpeed = 10f;
 
     //state variables
     public bool hasStarted = false;
@@ -43,7 +43,7 @@ public class Ball : MonoBehaviour {
                 //print("Paddle Angle: " + paddleZ);
                 hasStarted = true;
                 //myRigidBody2D.angularVelocity = paddleZ;
-                myRigidBody2D.velocity = new Vector2(2f, 15f);
+                myRigidBody2D.velocity = new Vector2(2f, 10f);
             }
         }
         if (hasStarted)
