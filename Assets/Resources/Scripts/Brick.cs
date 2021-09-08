@@ -13,17 +13,21 @@ public class Brick : MonoBehaviour {
     public Sprite[] hitSprites;
     private LevelManager levelManager;
     private Scoreboard addScore;
+    private SpawnBrick spawner;
 
     //state variables
     private int timesHit;
     private bool isBreakable;
+    private bool isQuitting;
 
     // Use this for initialization
     void Start () {
         timesHit = 0;
+        isQuitting = false;
         countBreakable();
         addScore = FindObjectOfType<Scoreboard>();
         levelManager = FindObjectOfType<LevelManager>();
+        spawner = FindObjectOfType<SpawnBrick>();
 	}
 	
 	// Update is called once per frame
@@ -54,8 +58,9 @@ public class Brick : MonoBehaviour {
         int maxHits = hitSprites.Length + 1;
         if (timesHit >= maxHits)
         {
-            //StartCoroutine(RespawnBrick());
             breakableCount--;
+            Vector3 oldLoc = gameObject.transform.position;
+            spawner.beginBrickSpawn(oldLoc);
             playBreakSFX();
             TriggerParticleFX();
             levelManager.BrickDestroyed();
@@ -89,11 +94,13 @@ public class Brick : MonoBehaviour {
         Destroy(crumbles, 0.75f);
     }
 
-    IEnumerator RespawnBrick()
+    IEnumerator RespawnBrick(Vector3 location)
     {
-        gameObject.SetActive(false);
-        yield return new UnityEngine.WaitForSeconds(3f);
-        gameObject.SetActive(true);
+        Debug.Log("Current Bricks Left: " + breakableCount);
+        yield return null;
+        GameObject newBrick = (GameObject)Instantiate(Resources.Load("Prefabs/Maverick"));
+        Debug.Log("New Brick at " + newBrick.transform.position);
+        //newBrick.transform.position = location;
         breakableCount++;
 
     }
