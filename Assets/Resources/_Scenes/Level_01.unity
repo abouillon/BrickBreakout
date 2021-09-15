@@ -1407,6 +1407,21 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61057624749792610, guid: b9f24eb5bfc119547b547c17503cd954,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 61537829103387620, guid: b9f24eb5bfc119547b547c17503cd954,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 61722528952163976, guid: b9f24eb5bfc119547b547c17503cd954,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114672238184604376, guid: b9f24eb5bfc119547b547c17503cd954,
         type: 3}
       propertyPath: levelManager
@@ -1737,7 +1752,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105544307913422, guid: ee563b80f2cc0934785f05da0adc3117, type: 3}
       propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 50988741499161702, guid: ee563b80f2cc0934785f05da0adc3117,
+        type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50988741499161702, guid: ee563b80f2cc0934785f05da0adc3117,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 50988741499161702, guid: ee563b80f2cc0934785f05da0adc3117,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50988741499161702, guid: ee563b80f2cc0934785f05da0adc3117,
+        type: 3}
+      propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61571010251012988, guid: ee563b80f2cc0934785f05da0adc3117,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee563b80f2cc0934785f05da0adc3117, type: 3}
@@ -1891,6 +1931,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_GravityScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50833695749856228, guid: 091dc65939021104ea70dc88c3630717,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 50833695749856228, guid: 091dc65939021104ea70dc88c3630717,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114301278464312562, guid: 091dc65939021104ea70dc88c3630717,
         type: 3}
@@ -2816,7 +2866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 1
-  autoplay: 1
+  autoplay: 0
 --- !u!4 &2014900984
 Transform:
   m_ObjectHideFlags: 0

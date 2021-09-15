@@ -14,7 +14,7 @@ public class SpawnBrick : MonoBehaviour
     IEnumerator SpawningBrick(Vector3 location)
     {
         int prefab = Random.Range(0, 3);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         GameObject newBrick = (GameObject)Instantiate(Resources.Load("Prefabs/" + brickPrefabs[prefab]));
         newBrick.transform.position = location;
 

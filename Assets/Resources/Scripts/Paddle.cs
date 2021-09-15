@@ -22,6 +22,7 @@ public class Paddle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         Vector3 paddlePos = new Vector3(0.5f, this.transform.position.y, 0f);
         currentRotation = this.transform.localEulerAngles;
 
@@ -78,4 +79,9 @@ public class Paddle : MonoBehaviour {
         return this.transform.rotation.z;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var localDirection = ballLoc.transform.InverseTransformDirection(ballLoc.gameObject.GetComponent<Rigidbody2D>().velocity);
+        ballLoc.gameObject.GetComponent<Rigidbody2D>().AddForce(localDirection * 0.01f, ForceMode2D.Impulse);
+    }
 }
