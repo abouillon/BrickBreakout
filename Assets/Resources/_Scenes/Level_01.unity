@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 1
-  autoplay: 0
+  autoplay: 1
 --- !u!4 &2014900984
 Transform:
   m_ObjectHideFlags: 0
