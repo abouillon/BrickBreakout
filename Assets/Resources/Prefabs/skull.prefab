@@ -114,7 +114,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1249089895474000}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: c68fd84f4fcc738409b89eb83373374b, type: 2}
+  m_Material: {fileID: 6200000, guid: 25b93b26bd5c56248a19d14c4c53eb02, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -133,10 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6548a6f462cd4542bced3d4139d9ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomFactor: 1
   ballSounds:
   - {fileID: 8300000, guid: 684d3a556cd3cde41b0cd115bc7d8615, type: 3}
   - {fileID: 8300000, guid: 5503754537d2f274995982676461a68d, type: 3}
   - {fileID: 8300000, guid: 5e20eb53646aa284ab6ea32e2a3e2b6f, type: 3}
+  hasStarted: 0
 --- !u!82 &1581478724913780154
 AudioSource:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 212976937248968022}
   - component: {fileID: 61290412461062544}
   - component: {fileID: 114110515245064636}
+  - component: {fileID: 4083645078578619427}
   m_Layer: 0
   m_Name: Scoob
   m_TagString: Breakable
@@ -125,3 +126,24 @@ MonoBehaviour:
   hitSprites:
   - {fileID: 21300006, guid: 92987e5e963c724448251255ae6248cc, type: 3}
   - {fileID: 21300008, guid: 92987e5e963c724448251255ae6248cc, type: 3}
+--- !u!50 &4083645078578619427
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815224698767356}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

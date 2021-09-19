@@ -1935,13 +1935,28 @@ PrefabInstance:
     - target: {fileID: 50833695749856228, guid: 091dc65939021104ea70dc88c3630717,
         type: 3}
       propertyPath: m_Mass
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50833695749856228, guid: 091dc65939021104ea70dc88c3630717,
         type: 3}
       propertyPath: m_LinearDrag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 50833695749856228, guid: 091dc65939021104ea70dc88c3630717,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50833695749856228, guid: 091dc65939021104ea70dc88c3630717,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50833695749856228, guid: 091dc65939021104ea70dc88c3630717,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c68fd84f4fcc738409b89eb83373374b, type: 2}
     - target: {fileID: 114301278464312562, guid: 091dc65939021104ea70dc88c3630717,
         type: 3}
       propertyPath: ballSounds.Array.size
