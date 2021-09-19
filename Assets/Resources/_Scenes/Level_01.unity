@@ -1956,6 +1956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 58664242714052220, guid: 091dc65939021104ea70dc88c3630717,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 6200000, guid: c68fd84f4fcc738409b89eb83373374b, type: 2}
     - target: {fileID: 114301278464312562, guid: 091dc65939021104ea70dc88c3630717,
         type: 3}

@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour {
     [SerializeField] float randomFactor = 1f;
     [SerializeField] AudioClip[] ballSounds;
     private float maxSpeed = 10f;
+    private float minSpeed = 8f;
 
     //state variables
     public bool hasStarted = false;
@@ -46,6 +47,11 @@ public class Ball : MonoBehaviour {
                 myRigidBody2D.velocity = new Vector2(paddleZ, 10f);
             }
         }
+
+        if (hasStarted)
+        {
+            myRigidBody2D.velocity = maxSpeed * (myRigidBody2D.velocity.normalized);
+        }
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,7 +60,7 @@ public class Ball : MonoBehaviour {
         var inertia = 0.5f;
         var maxDeg = 10f;
         var minDeg = -10f;
-        Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(-1f, randomFactor), UnityEngine.Random.Range(-1f, randomFactor));
+        Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(0f, randomFactor), UnityEngine.Random.Range(0f, randomFactor));
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
