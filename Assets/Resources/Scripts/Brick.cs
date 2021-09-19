@@ -74,7 +74,6 @@ public class Brick : MonoBehaviour {
     private void playBreakSFX()
     {
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, 0.45f);
-        //Debug.Log("coords: " + gameObject.transform.position);
         Destroy(gameObject);
         addScore.AddToScore();
     }
@@ -92,16 +91,5 @@ public class Brick : MonoBehaviour {
     {
         GameObject crumbles = Instantiate(brickParticleFX, transform.position, transform.rotation);
         Destroy(crumbles, 0.75f);
-    }
-
-    IEnumerator RespawnBrick(Vector3 location)
-    {
-        Debug.Log("Current Bricks Left: " + breakableCount);
-        yield return null;
-        GameObject newBrick = (GameObject)Instantiate(Resources.Load("Prefabs/Maverick"));
-        Debug.Log("New Brick at " + newBrick.transform.position);
-        //newBrick.transform.position = location;
-        breakableCount++;
-
     }
 }

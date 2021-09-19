@@ -81,13 +81,8 @@ public class Paddle : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //todo determine if AddForce is better than simply adding a small amount directly to velocity
-       //var localDirection = ballLoc.transform.InverseTransformDirection(ballLoc.gameObject.GetComponent<Rigidbody2D>().velocity);
-        //ballLoc.gameObject.GetComponent<Rigidbody2D>().AddForce(localDirection * 0.01f, ForceMode2D.Impulse);
-
         ContactPoint2D contact = collision.contacts[0];
         Vector2 reflectedVelocity = Vector2.Reflect(ballLoc.GetComponent<Rigidbody2D>().velocity, contact.normal);
         ballLoc.GetComponent<Rigidbody2D>().velocity = reflectedVelocity;
-        Debug.Log("Velocity is: " + ballLoc.GetComponent<Rigidbody2D>().velocity.magnitude);
     }
 }

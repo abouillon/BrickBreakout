@@ -12,10 +12,8 @@ public class LevelManager : MonoBehaviour {
     public void LoadLevel(string name)
     {
         state = FindObjectOfType<GameState>();
-        if(name == "Lose" || name == "Win")
+        if(name == "Lose")
         {
-
-            print("Loading Win/Lose");
             Brick.breakableCount = 0;
             SceneManager.LoadScene(name);
             state.ResetState();
@@ -30,16 +28,11 @@ public class LevelManager : MonoBehaviour {
         Application.Quit();
     }
 
-    public void LoadNextLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
     public void BrickDestroyed()
     {
         if (Brick.breakableCount <= 0)
         {
-            LoadNextLevel();
+            //TODO track bricks broken here
         }
     }
 

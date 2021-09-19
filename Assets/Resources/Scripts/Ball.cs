@@ -12,7 +12,6 @@ public class Ball : MonoBehaviour {
     [SerializeField] float randomFactor = 1f;
     [SerializeField] AudioClip[] ballSounds;
     private float maxSpeed = 10f;
-    private float minSpeed = 8f;
 
     //state variables
     public bool hasStarted = false;
@@ -30,7 +29,6 @@ public class Ball : MonoBehaviour {
 		paddleToBallVector = this.transform.position - paddle.transform.position;
         myAudioSource = GetComponent<AudioSource>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
-        //paddleZ = paddle.transform.rotation.z;
 
     }
 	
