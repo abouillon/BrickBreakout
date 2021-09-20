@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Scoreboard : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Scoreboard : MonoBehaviour
     
     //config params
     [SerializeField] int pointsPerBlock = 50;
-    [SerializeField] public Text scoreboard;
+    [SerializeField] public TextMeshProUGUI scoreboard;
 
     //state variables
     [SerializeField] int gameScore = 0;

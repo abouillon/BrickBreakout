@@ -18,12 +18,12 @@ public class Brick : MonoBehaviour {
     //state variables
     private int timesHit;
     private bool isBreakable;
-    private bool isQuitting;
+    //private bool isQuitting;
 
     // Use this for initialization
     void Start () {
         timesHit = 0;
-        isQuitting = false;
+        //isQuitting = false;
         countBreakable();
         addScore = FindObjectOfType<Scoreboard>();
         levelManager = FindObjectOfType<LevelManager>();

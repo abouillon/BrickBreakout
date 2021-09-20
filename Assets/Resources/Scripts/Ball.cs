@@ -54,18 +54,12 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        var inertia = 0.5f;
-        var maxDeg = 10f;
-        var minDeg = -10f;
         Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(0f, randomFactor), UnityEngine.Random.Range(0f, randomFactor));
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
             GetComponent<AudioSource>().PlayOneShot(clip, 0.45f);
             myRigidBody2D.velocity += velocityOffset;
-            var impulse = (UnityEngine.Random.Range(minDeg, maxDeg) * Mathf.Deg2Rad) * inertia;
-            myRigidBody2D.AddTorque(impulse, ForceMode2D.Impulse);
         }
     }
 
