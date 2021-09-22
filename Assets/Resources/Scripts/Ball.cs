@@ -55,11 +55,13 @@ public class Ball : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 velocityOffset = new Vector2(UnityEngine.Random.Range(0f, randomFactor), UnityEngine.Random.Range(0f, randomFactor));
+        Vector2 opposite = -myRigidBody2D.velocity;
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
             GetComponent<AudioSource>().PlayOneShot(clip, 0.45f);
             myRigidBody2D.velocity += velocityOffset;
+            myRigidBody2D.AddForce(opposite * Time.deltaTime);
         }
     }
 

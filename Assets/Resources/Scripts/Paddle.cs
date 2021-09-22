@@ -83,6 +83,6 @@ public class Paddle : MonoBehaviour {
     {
         ContactPoint2D contact = collision.contacts[0];
         Vector2 reflectedVelocity = Vector2.Reflect(ballLoc.GetComponent<Rigidbody2D>().velocity, contact.normal);
-        ballLoc.GetComponent<Rigidbody2D>().velocity = reflectedVelocity;
+        ballLoc.GetComponent<Rigidbody2D>().AddForce(reflectedVelocity.normalized * Time.deltaTime, ForceMode2D.Impulse);
     }
 }
