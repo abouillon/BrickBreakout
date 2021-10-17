@@ -7,7 +7,25 @@ public class LevelManager : MonoBehaviour {
 
     //cached references
     private GameState state;
-    private Scoreboard score;
+
+    //state variables
+    private string curScn;
+
+    private void Awake()
+    {
+        curScn = SceneManager.GetActiveScene().name;
+
+        //setup initial stats for saving
+        if (curScn.Equals("Start"))
+        {
+            if (!PlayerPrefs.HasKey("highscore") && !PlayerPrefs.HasKey("bricksDestroyed"))
+            {
+                PlayerPrefs.SetInt("highscore", 0);
+                PlayerPrefs.SetInt("bricksDestroyed", 0);
+                PlayerPrefs.Save();
+            }
+        }
+    }
 
     public void LoadLevel(string name)
     {

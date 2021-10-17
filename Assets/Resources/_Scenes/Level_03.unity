@@ -1779,10 +1779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 1
-  pointsPerBlock: 50
-  scoreboard: {fileID: 919712325}
   autoplay: 0
-  gameScore: 0
 --- !u!4 &1603608038
 Transform:
   m_ObjectHideFlags: 0

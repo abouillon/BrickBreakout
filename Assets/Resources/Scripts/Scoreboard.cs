@@ -47,4 +47,9 @@ public class Scoreboard : MonoBehaviour
         scoreboard.text = gameScore.ToString();
         Destroy(gameObject);
     }
+
+    public int getScore()
+    {
+        return gameScore;
+    }
 }

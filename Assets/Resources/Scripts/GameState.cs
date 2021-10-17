@@ -63,6 +63,14 @@ public class GameState : MonoBehaviour
 
     public void ResetState()
     {
+        int finalScore = board.getScore();
+
+        if(finalScore > PlayerPrefs.GetInt("highscore"))
+        {
+            PlayerPrefs.SetInt("highscore", finalScore);
+            PlayerPrefs.Save();
+        }
+
         Destroy(gameObject);
         board.resetScore();
     }
