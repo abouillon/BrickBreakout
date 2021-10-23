@@ -61,16 +61,24 @@ public class GameState : MonoBehaviour
 
     }
 
-    public void ResetState()
+    public void ResetState(int bricksBroken)
     {
         int finalScore = board.getScore();
+        int destCount = bricksBroken;
+        int totalBroken = PlayerPrefs.GetInt("bricksDestroyed") + bricksBroken;
 
         if(finalScore > PlayerPrefs.GetInt("highscore"))
         {
             PlayerPrefs.SetInt("highscore", finalScore);
-            PlayerPrefs.Save();
         }
 
+        if(bricksBroken > PlayerPrefs.GetInt("mostDestroyed"))
+        {
+            PlayerPrefs.SetInt("mostDestroyed", destCount);
+        }
+
+        PlayerPrefs.SetInt("bricksDestroyed", totalBroken);
+        PlayerPrefs.Save();
         Destroy(gameObject);
         board.resetScore();
     }

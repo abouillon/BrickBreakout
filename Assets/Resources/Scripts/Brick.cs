@@ -32,8 +32,8 @@ public class Brick : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     private void countBreakable()
     {
@@ -64,6 +64,7 @@ public class Brick : MonoBehaviour {
             playBreakSFX();
             TriggerParticleFX();
             levelManager.BrickDestroyed();
+            breakableCount++;
         }
         else
         {

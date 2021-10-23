@@ -10,18 +10,22 @@ public class LevelManager : MonoBehaviour {
 
     //state variables
     private string curScn;
+    private int sessionBroken;
 
     private void Awake()
     {
         curScn = SceneManager.GetActiveScene().name;
+        sessionBroken = 0;
 
         //setup initial stats for saving
         if (curScn.Equals("Start"))
         {
-            if (!PlayerPrefs.HasKey("highscore") && !PlayerPrefs.HasKey("bricksDestroyed"))
+
+            if (!PlayerPrefs.HasKey("highscore") || !PlayerPrefs.HasKey("bricksDestroyed") || !PlayerPrefs.HasKey("mostDestroyed"))
             {
                 PlayerPrefs.SetInt("highscore", 0);
                 PlayerPrefs.SetInt("bricksDestroyed", 0);
+                PlayerPrefs.SetInt("mostDestroyed", 0);
                 PlayerPrefs.Save();
             }
         }
@@ -34,7 +38,7 @@ public class LevelManager : MonoBehaviour {
         {
             Brick.breakableCount = 0;
             SceneManager.LoadScene(name);
-            state.ResetState();
+            state.ResetState(sessionBroken);
         } else
         {
             SceneManager.LoadScene(name);
@@ -48,10 +52,6 @@ public class LevelManager : MonoBehaviour {
 
     public void BrickDestroyed()
     {
-        if (Brick.breakableCount <= 0)
-        {
-            //TODO track bricks broken here
-        }
+        sessionBroken++;
     }
-
 }
